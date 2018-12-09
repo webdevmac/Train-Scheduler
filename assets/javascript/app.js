@@ -43,42 +43,42 @@ $(document).ready(function () {
             firstTrainTime: firstTrainTime,
             frequency: frequency
         });
-
-    })
-    database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
-        var newTrain = snapshot.val()
         
-        // Assumptions
+    })
+
+    
+    database.ref().orderByChild("dateAdded").limitToLast(5).on("child_added", function (snapshot) {
+        var newTrain = snapshot.val()
+        //frequency train runs
         var tFrequency = newTrain.frequency;
 
-        // Time is 3:30 AM
+        // First time train leaves
         var firstTime = newTrain.firstTrainTime;
 
         // First Time (pushed back 1 year to make sure it comes before current time)
         var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-        console.log(firstTimeConverted);
+        
 
         // Current Time
         var currentTime = moment();
-        console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-
+        
         // Difference between the times
         var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-        console.log("DIFFERENCE IN TIME: " + diffTime);
+        
 
         // Time apart (remainder)
         var tRemainder = diffTime % tFrequency;
-        console.log(tRemainder);
+        
 
         // Minute Until Train
         var tMinutesTillTrain = tFrequency - tRemainder;
-        console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+        
 
-        // Next Train
+        // Next Train time
         var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-        console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+        
 
-        $("tbody").append(`<tr>
+        $("tbody").append(`<tr class= 'tr'>
                         <td>${newTrain.trainName}</td>
                         <td>${newTrain.destination}</td>
                         <td>${newTrain.frequency}</td>
@@ -89,5 +89,11 @@ $(document).ready(function () {
 
 
     })
-
+    
 });
+
+
+
+    
+
+   

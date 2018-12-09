@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+#h1-1 {
+    background-color: cornflowerblue;
+    color: white;
+    margin-top: 30px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 30px;
+
+}
+
+.tr {
+    color: blue;
+    
+}
+.table {
+    align-content: center;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+#current-schedule {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+#add-train {
+
+    margin-left: 30px;
+    padding: 5px;
+    
+    
+}
+#form {
+    background-color: lightsteelblue;
+    padding: 20px;
+    
+    
+}
+.btn {
+    margin-left: 30px;
+    margin-top: 20px;
+    
+    
+}
+
+#footer {
+    background-color: cornflowerblue;
+    text-align: center;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+    
+    
+    
+
